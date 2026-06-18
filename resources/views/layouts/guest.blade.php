@@ -61,7 +61,10 @@
     <nav class="navbar navbar-expand-lg navbar-dark navbar-pks sticky-top">
         <div class="container">
             <a class="navbar-brand d-flex align-items-center gap-2" href="{{ route('beranda') }}">
-                <i class="bi bi-building"></i> DPRD Kota Tegal — Fraksi PKS
+                <div class="d-inline-flex align-items-center justify-content-center rounded-circle bg-white me-1" style="width:38px; height:38px; flex-shrink:0; box-shadow:0 1px 4px rgba(0,0,0,.2);">
+                    <img src="{{ asset('img/logo-pks.svg') }}" alt="Logo PKS" style="height: 26px; width: auto;">
+                </div>
+                DPRD Kota Tegal — Fraksi PKS
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navGuest">
                 <span class="navbar-toggler-icon"></span>

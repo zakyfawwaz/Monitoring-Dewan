@@ -31,10 +31,13 @@
                     <label class="form-label fw-semibold" style="font-size:.85rem">Password</label>
                     <div class="input-group">
                         <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
-                        <input type="password" name="password" class="form-control border-start-0 ps-0" placeholder="••••••••" required style="font-size:.9rem">
+                        <input type="password" name="password" id="passwordInput" class="form-control border-start-0 border-end-0 ps-0" placeholder="••••••••" required style="font-size:.9rem">
+                        <button type="button" class="input-group-text bg-light border-start-0" id="togglePassword" onclick="togglePass()" style="cursor:pointer; border-left:none;">
+                            <i class="bi bi-eye text-muted" id="eyeIcon"></i>
+                        </button>
                     </div>
                 </div>
-                <button type="submit" class="btn btn-success w-100 py-2 fw-semibold" style="border-radius:10px; background:linear-gradient(135deg, #1B5E20, #4CAF50); border:none;">
+                <button type="submit" class="btn w-100 py-2 fw-semibold text-white" style="border-radius:10px; background:linear-gradient(135deg, #e64800, #fe5000); border:none; font-size:.95rem;">
                     <i class="bi bi-box-arrow-in-right me-1"></i> Masuk
                 </button>
             </form>
@@ -47,4 +50,20 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+    function togglePass() {
+        const input = document.getElementById('passwordInput');
+        const icon  = document.getElementById('eyeIcon');
+        if (input.type === 'password') {
+            input.type = 'text';
+            icon.classList.replace('bi-eye', 'bi-eye-slash');
+        } else {
+            input.type = 'password';
+            icon.classList.replace('bi-eye-slash', 'bi-eye');
+        }
+    }
+</script>
+@endpush
 @endsection

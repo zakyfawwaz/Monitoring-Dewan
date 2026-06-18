@@ -133,9 +133,7 @@
     {{-- Sidebar --}}
     <aside class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <div class="mb-1">
-                <i class="bi bi-building text-success" style="font-size:1.5rem"></i>
-            </div>
+            <img src="{{ asset('img/logo-pks.svg') }}" alt="Logo PKS" class="d-block mx-auto mb-3" style="height: 48px; width: auto;">
             <h5>DPRD Kota Tegal</h5>
             <small>Fraksi PKS — Monitoring</small>
         </div>

@@ -6,14 +6,9 @@
     <div class="container position-relative" style="z-index:1">
         <h1 class="display-5 fw-bold mb-3">Monitoring Aktivitas<br>Anggota Dewan</h1>
         <p class="lead opacity-75 mx-auto" style="max-width:600px">Transparansi kegiatan Fraksi PKS DPRD Kota Tegal untuk pelayanan masyarakat yang lebih baik.</p>
-        <div class="d-flex gap-3 justify-content-center mt-4">
-            <a href="{{ route('publik.aktivitas') }}" class="btn btn-light btn-lg px-4 fw-semibold" style="border-radius:12px;font-size:.9rem">
-                <i class="bi bi-calendar-event me-1"></i> Lihat Aktivitas
-            </a>
-            <a href="{{ route('publik.statistik') }}" class="btn btn-outline-light btn-lg px-4 fw-semibold" style="border-radius:12px;font-size:.9rem">
-                <i class="bi bi-bar-chart me-1"></i> Statistik
-            </a>
-        </div>
+        <p class="mt-4 fw-semibold" style="font-size:1rem; color:rgba(255,255,255,.85); letter-spacing:.5px;">
+            <i class="bi bi-calendar-range me-2"></i>Periode 2024 – 2029
+        </p>
     </div>
 </section>
 

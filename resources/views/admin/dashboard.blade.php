@@ -52,9 +52,9 @@
                         <div class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:38px;height:38px">
                             <i class="bi bi-calendar-event text-success" style="font-size:.85rem"></i>
                         </div>
-                        <div class="flex-grow-1 min-width-0">
-                            <div class="fw-semibold text-truncate" style="font-size:.85rem">{{ $akt->nama_kegiatan }}</div>
-                            <div class="text-muted" style="font-size:.75rem">{{ $akt->anggotaDewan->nama_lengkap }} · {{ $akt->tanggal->format('d M Y') }}</div>
+                        <div class="flex-grow-1" style="min-width:0; overflow:hidden;">
+                            <div class="fw-semibold text-truncate" style="font-size:.85rem;" title="{{ $akt->nama_kegiatan }}">{{ $akt->nama_kegiatan }}</div>
+                            <div class="text-muted text-truncate" style="font-size:.75rem">{{ $akt->anggotaDewan->nama_lengkap }} · {{ $akt->tanggal->format('d M Y') }}</div>
                         </div>
                         <span class="badge bg-success bg-opacity-10 text-success badge-kategori">{{ $akt->label_kategori }}</span>
                     </div>
@@ -69,14 +69,14 @@
     <div class="col-lg-4">
         <div class="card-clean card">
             <div class="card-header d-flex justify-content-between align-items-center">
-                <span><i class="bi bi-people text-primary me-2"></i>Anggota Dewan</span>
-                <a href="{{ route('admin.anggota-dewan.index') }}" class="btn btn-sm btn-outline-primary" style="font-size:.78rem">Kelola</a>
+                <span><i class="bi bi-people text-success me-2"></i>Anggota Dewan</span>
+                <a href="{{ route('admin.anggota-dewan.index') }}" class="btn btn-sm btn-outline-success" style="font-size:.78rem">Kelola</a>
             </div>
             <div class="card-body p-0">
                 @forelse($anggotaDewan as $anggota)
                     <div class="d-flex align-items-center gap-3 p-3 border-bottom">
-                        <div class="rounded-circle bg-primary bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:36px;height:36px">
-                            <i class="bi bi-person-fill text-primary" style="font-size:.85rem"></i>
+                        <div class="rounded-circle bg-success bg-opacity-10 d-flex align-items-center justify-content-center flex-shrink-0" style="width:36px;height:36px">
+                            <i class="bi bi-person-fill text-success" style="font-size:.85rem"></i>
                         </div>
                         <div>
                             <div class="fw-semibold" style="font-size:.85rem">{{ $anggota->nama_lengkap }}</div>

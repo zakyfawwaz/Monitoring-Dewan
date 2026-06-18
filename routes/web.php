@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\PenggunaController;
 use App\Http\Controllers\Admin\RekapController;
 use App\Http\Controllers\Admin\TenagaAhliController;
 use App\Http\Controllers\Admin\StafAdministrasiController;
+use App\Http\Controllers\Admin\AktivitasTenagaAhliController;
+use App\Http\Controllers\Admin\AktivitasStafAdministrasiController;
 use App\Http\Controllers\Anggota\AktivitasSayaController;
 use App\Http\Controllers\Anggota\DashboardController as AnggotaDashboardController;
 use App\Http\Controllers\Anggota\RekapSayaController;
@@ -82,8 +84,10 @@ Route::middleware('auth')->group(function () {
         // CRUD Staf Administrasi
         Route::resource('staf-administrasi', StafAdministrasiController::class);
 
-        // CRUD Aktivitas (semua anggota)
+        // CRUD Aktivitas
         Route::resource('aktivitas', AktivitasController::class);
+        Route::resource('aktivitas-tenaga-ahli', AktivitasTenagaAhliController::class);
+        Route::resource('aktivitas-staf-administrasi', AktivitasStafAdministrasiController::class);
 
         // Rekap Aktivitas
         Route::prefix('rekap')->name('rekap.')->group(function () {

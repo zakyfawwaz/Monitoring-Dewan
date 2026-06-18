@@ -34,7 +34,7 @@
             @endif
             <div class="col-auto">
                 <select name="tahun" class="form-select form-select-sm">
-                    @for($y = date('Y'); $y >= date('Y') - 5; $y--)
+                    @for($y = 2029; $y >= 2024; $y--)
                         <option value="{{ $y }}" {{ $tahun == $y ? 'selected' : '' }}>{{ $y }}</option>
                     @endfor
                 </select>
