@@ -81,6 +81,11 @@ class AktivitasStafAdministrasi extends Model
         return $query->whereYear('tanggal', $tahun);
     }
 
+    public function scopeRentangTanggal($query, string $dari, string $sampai)
+    {
+        return $query->whereBetween('tanggal', [$dari, $sampai]);
+    }
+
     public function scopeMilikStaf($query, int $id)
     {
         return $query->where('staf_administrasi_id', $id);

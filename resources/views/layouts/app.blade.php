@@ -25,7 +25,12 @@
         .btn-success { background-color: var(--pks-primary) !important; border-color: var(--pks-primary) !important; color: #fff !important; }
         .btn-success:hover { background-color: var(--pks-secondary) !important; border-color: var(--pks-secondary) !important; }
         .btn-outline-success { color: var(--pks-primary) !important; border-color: var(--pks-primary) !important; }
-        .btn-outline-success:hover { background-color: var(--pks-primary) !important; border-color: var(--pks-primary) !important; color: #fff !important; }
+        .btn-outline-success:hover, .btn-check:checked + .btn-outline-success, .btn-outline-success.active { background-color: var(--pks-primary) !important; border-color: var(--pks-primary) !important; color: #fff !important; }
+        .nav-pills .nav-link { color: var(--pks-primary); }
+        .nav-pills .nav-link.active, .nav-pills .show > .nav-link { background-color: var(--pks-primary) !important; color: #fff !important; }
+        .dropdown-item.active, .dropdown-item:active { background-color: var(--pks-primary) !important; color: #fff !important; }
+        .dropdown-item:hover, .dropdown-item:focus { background-color: rgba(254, 80, 0, 0.08); color: var(--pks-primary); }
+        .dropdown-item.text-danger:hover, .dropdown-item.text-danger:focus { color: #dc3545 !important; }
         * { font-family: 'Inter', sans-serif; }
         body { background: #f0f2f5; min-height: 100vh; }
 
@@ -86,6 +91,12 @@
         }
         .stat-card .stat-value { font-size: 1.75rem; font-weight: 800; color: #1a1a2e; }
         .stat-card .stat-label { font-size: .78rem; color: #6c757d; font-weight: 500; }
+
+        /* ── Split stat card (Dewan | TA/SA) ── */
+        .stat-split-value { font-size: 1.6rem; font-weight: 800; color: #1a1a2e; line-height: 1.1; }
+        .stat-split-label { font-size: .72rem; color: #6c757d; font-weight: 600; text-transform: uppercase; letter-spacing: .5px; margin-top: .2rem; }
+        .stat-divider { width: 1px; background: #e9ecef; margin: 0 .25rem; align-self: stretch; }
+
 
         .card-clean {
             border: none; border-radius: 12px; background: #fff;

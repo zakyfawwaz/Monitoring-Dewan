@@ -4,43 +4,99 @@
 @section('content')
 {{-- Stat Cards --}}
 <div class="row g-3 mb-4">
+    {{-- Card: Anggota Dewan --}}
     <div class="col-sm-6 col-xl">
         <div class="stat-card card p-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="stat-icon bg-success bg-opacity-10 text-success"><i class="bi bi-people-fill"></i></div>
-                <div><div class="stat-value">{{ $totalAnggota }}</div><div class="stat-label">Anggota Dewan</div></div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="stat-icon bg-success bg-opacity-10 text-success flex-shrink-0">
+                    <i class="bi bi-people-fill"></i>
+                </div>
+                <div class="stat-label fw-600 text-dark" style="font-size:.82rem; font-weight:600;">Anggota Dewan</div>
+            </div>
+            <div class="text-center">
+                <div class="stat-split-value">{{ $totalAnggota }}</div>
+                <div class="stat-split-label">Total Anggota</div>
             </div>
         </div>
     </div>
+    {{-- Card: TA/SA Fraksi --}}
     <div class="col-sm-6 col-xl">
         <div class="stat-card card p-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="stat-icon bg-success bg-opacity-10 text-success"><i class="bi bi-person-badge-fill"></i></div>
-                <div><div class="stat-value">{{ $totalStaf }}</div><div class="stat-label">TA/SA Fraksi</div></div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="stat-icon bg-success bg-opacity-10 text-success flex-shrink-0">
+                    <i class="bi bi-person-badge-fill"></i>
+                </div>
+                <div class="stat-label fw-600 text-dark" style="font-size:.82rem; font-weight:600;">TA/SA Fraksi</div>
+            </div>
+            <div class="text-center">
+                <div class="stat-split-value">{{ $totalStaf }}</div>
+                <div class="stat-split-label">Total TA/SA</div>
             </div>
         </div>
     </div>
+    {{-- Card: Aktivitas Hari Ini --}}
     <div class="col-sm-6 col-xl">
         <div class="stat-card card p-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="stat-icon bg-primary bg-opacity-10 text-primary"><i class="bi bi-calendar-check-fill"></i></div>
-                <div><div class="stat-value">{{ $aktivitasHariIni }}</div><div class="stat-label">Aktivitas Hari Ini</div></div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="stat-icon bg-primary bg-opacity-10 text-primary flex-shrink-0">
+                    <i class="bi bi-calendar-check-fill"></i>
+                </div>
+                <div class="stat-label fw-600 text-dark" style="font-size:.82rem; font-weight:600;">Aktivitas Hari Ini</div>
+            </div>
+            <div class="d-flex align-items-stretch">
+                <div class="text-center flex-grow-1">
+                    <div class="stat-split-value">{{ $todayDewan }}</div>
+                    <div class="stat-split-label">Dewan</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="text-center flex-grow-1">
+                    <div class="stat-split-value">{{ $todayTasa }}</div>
+                    <div class="stat-split-label">TA/SA</div>
+                </div>
             </div>
         </div>
     </div>
+    {{-- Card: Bulan Ini --}}
     <div class="col-sm-6 col-xl">
         <div class="stat-card card p-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="stat-icon bg-warning bg-opacity-10 text-warning"><i class="bi bi-calendar3"></i></div>
-                <div><div class="stat-value">{{ $aktivitasBulanIni }}</div><div class="stat-label">Bulan Ini</div></div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="stat-icon bg-warning bg-opacity-10 text-warning flex-shrink-0">
+                    <i class="bi bi-calendar3"></i>
+                </div>
+                <div class="stat-label fw-600 text-dark" style="font-size:.82rem; font-weight:600;">Bulan Ini</div>
+            </div>
+            <div class="d-flex align-items-stretch">
+                <div class="text-center flex-grow-1">
+                    <div class="stat-split-value">{{ $monthDewan }}</div>
+                    <div class="stat-split-label">Dewan</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="text-center flex-grow-1">
+                    <div class="stat-split-value">{{ $monthTasa }}</div>
+                    <div class="stat-split-label">TA/SA</div>
+                </div>
             </div>
         </div>
     </div>
+    {{-- Card: Tahun Ini --}}
     <div class="col-sm-6 col-xl">
         <div class="stat-card card p-3">
-            <div class="d-flex align-items-center gap-3">
-                <div class="stat-icon bg-info bg-opacity-10 text-info"><i class="bi bi-graph-up"></i></div>
-                <div><div class="stat-value">{{ $aktivitasTahunIni }}</div><div class="stat-label">Tahun {{ date('Y') }}</div></div>
+            <div class="d-flex align-items-center gap-2 mb-3">
+                <div class="stat-icon bg-info bg-opacity-10 text-info flex-shrink-0">
+                    <i class="bi bi-graph-up"></i>
+                </div>
+                <div class="stat-label fw-600 text-dark" style="font-size:.82rem; font-weight:600;">Tahun {{ $tahunIni }}</div>
+            </div>
+            <div class="d-flex align-items-stretch">
+                <div class="text-center flex-grow-1">
+                    <div class="stat-split-value">{{ $yearDewan }}</div>
+                    <div class="stat-split-label">Dewan</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="text-center flex-grow-1">
+                    <div class="stat-split-value">{{ $yearTasa }}</div>
+                    <div class="stat-split-label">TA/SA</div>
+                </div>
             </div>
         </div>
     </div>

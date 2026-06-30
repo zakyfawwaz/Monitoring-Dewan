@@ -31,10 +31,22 @@ class DashboardController extends Controller
         $daftarStaf = $tenagaAhliList->concat($stafAdministrasiList);
         $totalStaf = $daftarStaf->count();
 
-        // 3. Statistik Aktivitas Gabungan (opsional, tapi pakai yang lama saja untuk aktivitas dewan)
-        $aktivitasHariIni = Aktivitas::hariIni()->count();
-        $aktivitasBulanIni = Aktivitas::bulan(date('n'))->count();
-        $aktivitasTahunIni = Aktivitas::tahun(date('Y'))->count();
+        // 3. Statistik Aktivitas — 6 nilai efisien (hari ini / bulan ini / tahun ini) × (Dewan / TA+SA)
+        $today     = today()->toDateString();
+        $bulanIni  = (int) date('n');
+        $tahunIni  = (int) date('Y');
+
+        $todayDewan = Aktivitas::hariIni()->count();
+        $todayTasa  = AktivitasTenagaAhli::hariIni()->count()
+                    + AktivitasStafAdministrasi::hariIni()->count();
+
+        $monthDewan = Aktivitas::bulan($bulanIni, $tahunIni)->count();
+        $monthTasa  = AktivitasTenagaAhli::bulan($bulanIni, $tahunIni)->count()
+                    + AktivitasStafAdministrasi::bulan($bulanIni, $tahunIni)->count();
+
+        $yearDewan  = Aktivitas::tahun($tahunIni)->count();
+        $yearTasa   = AktivitasTenagaAhli::tahun($tahunIni)->count()
+                    + AktivitasStafAdministrasi::tahun($tahunIni)->count();
 
         // 4. Aktivitas Terbaru Dewan
         $aktivitasTerbaruDewan = Aktivitas::with('anggotaDewan')
@@ -58,9 +70,13 @@ class DashboardController extends Controller
             'anggotaDewan'          => $anggotaDewan,
             'totalStaf'             => $totalStaf,
             'daftarStaf'            => $daftarStaf,
-            'aktivitasHariIni'      => $aktivitasHariIni,
-            'aktivitasBulanIni'     => $aktivitasBulanIni,
-            'aktivitasTahunIni'     => $aktivitasTahunIni,
+            'todayDewan'            => $todayDewan,
+            'todayTasa'             => $todayTasa,
+            'monthDewan'            => $monthDewan,
+            'monthTasa'             => $monthTasa,
+            'yearDewan'             => $yearDewan,
+            'yearTasa'              => $yearTasa,
+            'tahunIni'              => $tahunIni,
             'aktivitasTerbaruDewan' => $aktivitasTerbaruDewan,
             'aktivitasTerbaruStaf'  => $aktivitasTerbaruStaf,
         ]);

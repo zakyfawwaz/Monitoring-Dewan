@@ -5,6 +5,14 @@
 <div class="card-clean card mb-3">
     <div class="card-body py-2 px-3">
         <form method="GET" class="row g-2 align-items-center">
+            <div class="col-auto me-3">
+                <div class="btn-group btn-group-sm" role="group">
+                    <input type="radio" class="btn-check" name="jenis" id="jenisDewan" value="dewan" {{ $jenis == 'dewan' ? 'checked' : '' }} onchange="this.form.submit()">
+                    <label class="btn btn-outline-success" for="jenisDewan">Dewan</label>
+                    <input type="radio" class="btn-check" name="jenis" id="jenisTasa" value="tasa" {{ $jenis == 'tasa' ? 'checked' : '' }} onchange="this.form.submit()">
+                    <label class="btn btn-outline-success" for="jenisTasa">TA/SA</label>
+                </div>
+            </div>
             @if(isset($showBulan))
                 <div class="col-auto">
                     <select name="bulan" class="form-select form-select-sm">
@@ -54,7 +62,7 @@
     <div class="col-md-4">
         <div class="stat-card card p-3 text-center">
             <div class="stat-value text-primary">{{ $totalAnggotaAktif }}</div>
-            <div class="stat-label">Anggota Aktif</div>
+            <div class="stat-label">{{ $jenis == 'tasa' ? 'TA/SA Aktif' : 'Anggota Aktif' }}</div>
         </div>
     </div>
     <div class="col-md-4">
@@ -66,11 +74,11 @@
 </div>
 
 <div class="card-clean card">
-    <div class="card-header"><i class="bi bi-table me-2 text-success"></i>Detail Per Anggota</div>
+    <div class="card-header"><i class="bi bi-table me-2 text-success"></i>Detail Per {{ $jenis == 'tasa' ? 'TA/SA' : 'Anggota' }}</div>
     <div class="card-body p-0">
         <div class="table-responsive">
             <table class="table table-clean table-hover mb-0">
-                <thead><tr><th>#</th><th>Nama Anggota</th><th class="text-center">Jumlah Aktivitas</th></tr></thead>
+                <thead><tr><th>#</th><th>Nama {{ $jenis == 'tasa' ? 'TA/SA' : 'Anggota' }}</th><th class="text-center">Jumlah Aktivitas</th></tr></thead>
                 <tbody>
                     @forelse($rekapPerAnggota as $i => $item)
                         <tr>

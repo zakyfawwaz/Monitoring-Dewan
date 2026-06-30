@@ -56,9 +56,14 @@
 
     <div class="ttd">
         <p>Tegal, {{ now()->translatedFormat('d F Y') }}</p>
-        <p>Ketua Fraksi PKS</p>
+        <p style="margin-bottom: 2px;">Mengetahui,</p>
+        <p style="margin-top: 0;">Ketua Fraksi PKS DPRD Kota Tegal</p>
         <br><br><br>
-        <p>________________________</p>
+        @if(isset($ketuaFraksi) && $ketuaFraksi)
+            <p style="margin-top: 0; font-weight: bold; text-decoration: underline;">{{ $ketuaFraksi->nama_lengkap }}</p>
+        @else
+            <p>________________________</p>
+        @endif
     </div>
 </body>
 </html>

@@ -81,6 +81,11 @@ class AktivitasTenagaAhli extends Model
         return $query->whereYear('tanggal', $tahun);
     }
 
+    public function scopeRentangTanggal($query, string $dari, string $sampai)
+    {
+        return $query->whereBetween('tanggal', [$dari, $sampai]);
+    }
+
     public function scopeMilikTenagaAhli($query, int $id)
     {
         return $query->where('tenaga_ahli_id', $id);

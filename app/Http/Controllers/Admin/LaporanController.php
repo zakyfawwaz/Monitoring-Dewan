@@ -90,7 +90,9 @@ class LaporanController extends Controller
             })->values();
         }
 
-        return compact('aktivitas', 'dari', 'sampai', 'jenis', 'title', 'namaTampil');
+        $ketuaFraksi = AnggotaDewan::where('jabatan', 'LIKE', '%Ketua Fraksi%')->first();
+
+        return compact('aktivitas', 'dari', 'sampai', 'jenis', 'title', 'namaTampil', 'ketuaFraksi');
     }
 
     public function cetak(Request $request)
